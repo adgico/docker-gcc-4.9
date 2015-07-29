@@ -1,7 +1,5 @@
 #!/bin/bash
 
 if [ "$*" != "" ] ; then
-	docker run --cidfile=id -i -v `pwd`:/work -w /work adgico/gcc-4.9 $*
-	cat id | xargs docker rm >/dev/null
-	rm id
+	docker run --rm -i -v `pwd`:/work -w /work adgico/gcc-4.9 $*
 fi
